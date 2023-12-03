@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Edit Data  Produksi</title>
+    <title>Edit Data Penjualan</title>
     <link rel="stylesheet" href="style.css">
     <style>
         /* Gaya popup */
@@ -43,17 +43,17 @@
         die("Koneksi ke database gagal: " . $koneksi->connect_error);
     }
 
-    if (isset($_GET['id_produksi'])) {
-        $id_produksi = $_GET['id_produksi'];
+    if (isset($_GET['id_jual'])) {
+        $id_jual = $_GET['id_jual'];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nama_baru = $_POST['nama_barang'];
-            $tanggal_baru = $_POST['tanggal_produksi'];
-            $jumlah_baru = $_POST['jumlah_produksi'];
-            $harga_baru = $_POST['harga_produksi'];
+            $tanggal_baru = $_POST['tanggal_jual'];
+            $jumlah_baru = $_POST['jumlah_jual'];
+            $harga_baru = $_POST['harga_jual'];
 
             // Query untuk mengupdate data berdasarkan ID
-            $query = "UPDATE data_produksi SET nama_barang = '$nama_baru', tanggal_produksi = '$tanggal_baru', jumlah_produksi = $jumlah_baru, harga_produksi = '$harga_baru' WHERE id_produksi = $id_produksi";
+            $query = "UPDATE data_penjualan SET nama_barang = '$nama_baru', tanggal_jual = '$tanggal_baru', jumlah_jual = $jumlah_baru, harga_jual = '$harga_baru' WHERE id_jual = $id_jual";
 
             if ($koneksi->query($query) === TRUE) {
                 // Tampilkan popup "Data berhasil di edit"
@@ -61,7 +61,7 @@
                 echo '<script>
                     setTimeout(function() {
                         document.getElementById("popup").style.display = "none";
-                        window.location.href = "data_produksi.php";
+                        window.location.href = "data_penjualan.php";
                     }, 2000); // Arahkan ke halaman data_barang_masuk.php setelah 2 detik
                 </script>';
             } else {
@@ -69,15 +69,15 @@
             }
         } else {
             // Ambil data dari database berdasarkan ID
-            $query = "SELECT * FROM data_produksi WHERE id_produksi = $id_produksi";
+            $query = "SELECT * FROM data_penjualan WHERE id_jual = $id_jual";
             $result = $koneksi->query($query);
 
             if ($result->num_rows == 1) {
                 $row = $result->fetch_assoc();
                 $nama_barang = $row['nama_barang'];
-                $tanggal_produksi = $row['tanggal_produksi'];
-                $jumlah_produksi = $row['jumlah_produksi'];
-                $harga_produksi = $row['harga_produksi'];
+                $tanggal_jual = $row['tanggal_jual'];
+                $jumlah_jual = $row['jumlah_jual'];
+                $harga_jual = $row['harga_jual'];
             } else {
                 echo "Data tidak ditemukan.";
             }
@@ -89,12 +89,12 @@
 
 echo "<div class='form'>
         <div class='isi'>
-            <h1>Edit Data Produksi</h1>
+            <h1>Edit Data Penjualan</h1>
             <form method='post'>
                 <table>
                     <tr>
-                        <td><label for='tanggal_produksi'>Tanggal</label></td>
-                        <td><input type='date' name='tanggal_produksi'   value='$tanggal_produksi'></td>
+                        <td><label for='tanggal_jual'>Tanggal</label></td>
+                        <td><input type='date' name='tanggal_jual'   value='$tanggal_jual'></td>
                     </tr>
                     <tr>
                         <td><label for='nama_barang'>Nama Barang </label></td>
@@ -141,12 +141,12 @@ echo "</select>
                         </td>
                     </tr>
                     <tr>
-                        <td><label for='jumlah_produksi'>Jumlah</label></td>
-                        <td><input type='number' name='jumlah_produksi' value='$jumlah_produksi' required></td>
+                        <td><label for='jumlah_jual'>Jumlah</label></td>
+                        <td><input type='number' name='jumlah_jual' value='$jumlah_jual' required></td>
                     </tr>
                     <tr>
-                        <td><label for='harga_produksi'>Harga</label></td>
-                        <td><input type='text' name='harga_produksi' id='harga_produksi' required readonly value='$harga_produksi'></td>
+                        <td><label for='harga_jual'>Harga</label></td>
+                        <td><input type='text' name='harga_jual' id='harga_jual' required readonly value='$harga_jual'></td>
                     </tr>
                 </table>
                 <input type='submit' value='Simpan'>
@@ -159,22 +159,22 @@ echo "</select>
         // Tampilkan popup jika data berhasil di edit
         setTimeout(function() {
             document.getElementById("popup").style.display = "none";
-            window.location.href = "data_produksi.php";
+            window.location.href = "data_penjualan.php";
         }, 2000); // Arahkan ke halaman data_barang_masuk.php setelah 2 detik
     </script>
     <script>
         function updateIdBarang() {
             var namaBarang = document.getElementById('nama_barang').value;
-            var hargaProduksiInput = document.getElementById('harga_produksi');
+            var hargaProduksiInput = document.getElementById('harga_jual');
 
-            // AJAX request to fetch id_barang and harga_produksi based on selected nama_barang
+            // AJAX request to fetch id_barang and harga_jual based on selected nama_barang
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     var data = JSON.parse(xhr.responseText);
 
-                    // Update id_barang and harga_produksi fields
-                    hargaProduksiInput.value = data.harga_produksi;
+                    // Update id_barang and harga_jual fields
+                    hargaProduksiInput.value = data.harga_jual;
                 }
             };
 

@@ -225,8 +225,8 @@ $syafa = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             $total_pengeluaran =  "Rp".number_format($row['jumlah_jual'] * $row['harga_jual']);
                             echo "<td>" . $total_pengeluaran . "</td>";
 
-                            echo "<td><a href='edit_data_jual.php?id=" . $row['id_barang'] . "'><i data-feather='edit'></i></a></td>";
-                            echo "<td><a href='proses_hapus_jual.php?id=" . $row['id_barang'] . "'><i data-feather='trash'></i></a></td>";
+                            echo "<td><a href='edit_data_jual.php?id_jual=" . $row['id_jual'] . "'><i data-feather='edit'></i></a></td>";
+                            echo "<td><a href='proses_hapus_jual.php?id_jual=" . $row['id_jual'] . "'><i data-feather='trash'></i></a></td>";
                             echo "</tr>";
                             $i++;
                         }

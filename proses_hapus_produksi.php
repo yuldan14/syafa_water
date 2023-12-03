@@ -12,11 +12,11 @@ if ($koneksi->connect_error) {
 }
 
 // Periksa apakah parameter `id` ada dalam URL
-if (isset($_GET['id_barang'])) {
-    $id_barang = $_GET['id_barang'];
+if (isset($_GET['id_produksi'])) {
+    $id_produksi = $_GET['id_produksi'];
 
-    // Query untuk menghapus data berdasarkan `id_barang`
-    $query = "DELETE FROM data_produksi WHERE id_barang = $id_barang";
+    // Query untuk menghapus data berdasarkan `id_produksi`
+    $query = "DELETE FROM data_produksi WHERE id_produksi = $id_produksi";
 
     if ($koneksi->query($query) === TRUE) {
         // Jika data berhasil dihapus, arahkan kembali ke halaman data_barang_keluar.php

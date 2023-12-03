@@ -210,7 +210,6 @@
                             // Ubah format tampilan tanggal
                             $tanggal = date('j M Y', strtotime($row['tanggal_produksi']));
                             echo "<td>" . $tanggal . "</td>";
-
                             echo "<td>" . $row['id_barang'] . "</td>";
                             echo "<td>" . $row['nama_barang'] . "</td>";
                             echo "<td>" . $row['jumlah_produksi'] . "</td>";
@@ -219,8 +218,8 @@
                             $total_pengeluaran = $row['jumlah_produksi'] * $row['harga_produksi'];
                             echo "<td>" . "Rp".number_format($total_pengeluaran) . "</td>";
 
-                            echo "<td><a href='edit_data_produksi.php?id=" . $row['id_barang'] . "'><i data-feather='edit'></i></a></td>";
-                            echo "<td><a href='proses_hapus_produksi.php?id=" . $row['id_barang'] . "'><i data-feather='trash'></i></a></td>";
+                            echo "<td><a href='edit_data_produksi.php?id_produksi=" . $row['id_produksi'] . "'><i data-feather='edit'></i></a></td>";
+                            echo "<td><a href='proses_hapus_produksi.php?id_produksi=" . $row['id_produksi'] . "'><i data-feather='trash'></i></a></td>";
                             echo "</tr>";
                             $i++;
                         }
