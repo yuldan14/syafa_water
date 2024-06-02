@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2024 at 04:55 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Waktu pembuatan: 01 Des 2023 pada 07.42
+-- Versi server: 10.4.27-MariaDB
+-- Versi PHP: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_penjualan`
+-- Struktur dari tabel `data_penjualan`
 --
 
 CREATE TABLE `data_penjualan` (
@@ -36,10 +36,21 @@ CREATE TABLE `data_penjualan` (
   `harga_jual` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `data_penjualan`
+--
+
+INSERT INTO `data_penjualan` (`id_jual`, `id_barang`, `tanggal_jual`, `nama_barang`, `jumlah_jual`, `harga_jual`) VALUES
+(35, 3, '2023-11-29', 'Botol 330 ml', 400, 6000),
+(36, 4, '2023-10-19', 'Botol 600 ml', 500, 7000),
+(37, 2, '2023-09-07', 'Cup', 1000, 5000),
+(38, 1, '2023-08-23', 'Galon', 500, 10000),
+(39, 3, '2023-07-20', 'Botol 330 ml', 200, 6000);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_produksi`
+-- Struktur dari tabel `data_produksi`
 --
 
 CREATE TABLE `data_produksi` (
@@ -52,35 +63,24 @@ CREATE TABLE `data_produksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `data_produksi`
+-- Dumping data untuk tabel `data_produksi`
 --
 
 INSERT INTO `data_produksi` (`id_produksi`, `id_barang`, `tanggal_produksi`, `nama_barang`, `jumlah_produksi`, `harga_produksi`) VALUES
-(105, 4, '2024-04-03', 'Botol 600 ml', 1200, 4000);
+(96, 3, '2023-11-29', 'Botol 330 ml', 200, 3000),
+(97, 4, '2023-10-19', 'Botol 600 ml', 200, 4000),
+(98, 2, '2023-09-22', 'Cup', 900, 2000),
+(99, 1, '2023-07-13', 'Galon', 800, 5000),
+(100, 3, '2023-08-16', 'Botol 330 ml', 500, 3000),
+(101, 2, '2023-06-22', 'Cup', 1000, 2000),
+(102, 4, '2023-11-29', 'Botol 600 ml', 1000, 4000),
+(103, 4, '2023-11-22', 'Botol 600 ml', 700, 4000),
+(104, 1, '2023-07-20', 'Galon', 2000, 5000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
---
-
-CREATE TABLE `login` (
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `id_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `login`
---
-
-INSERT INTO `login` (`username`, `password`, `id_user`) VALUES
-('admin', 'admin', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `stok_barang`
+-- Struktur dari tabel `stok_barang`
 --
 
 CREATE TABLE `stok_barang` (
@@ -92,7 +92,7 @@ CREATE TABLE `stok_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `stok_barang`
+-- Dumping data untuk tabel `stok_barang`
 --
 
 INSERT INTO `stok_barang` (`id_barang`, `nama_barang`, `jumlah_stok`, `harga_produksi`, `harga_jual`) VALUES
@@ -106,27 +106,21 @@ INSERT INTO `stok_barang` (`id_barang`, `nama_barang`, `jumlah_stok`, `harga_pro
 --
 
 --
--- Indexes for table `data_penjualan`
+-- Indeks untuk tabel `data_penjualan`
 --
 ALTER TABLE `data_penjualan`
   ADD PRIMARY KEY (`id_jual`),
   ADD KEY `id_barang` (`id_barang`);
 
 --
--- Indexes for table `data_produksi`
+-- Indeks untuk tabel `data_produksi`
 --
 ALTER TABLE `data_produksi`
   ADD PRIMARY KEY (`id_produksi`),
   ADD KEY `id_barang` (`id_barang`);
 
 --
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`id_user`);
-
---
--- Indexes for table `stok_barang`
+-- Indeks untuk tabel `stok_barang`
 --
 ALTER TABLE `stok_barang`
   ADD PRIMARY KEY (`id_barang`),
@@ -134,39 +128,33 @@ ALTER TABLE `stok_barang`
   ADD UNIQUE KEY `nama_barang` (`nama_barang`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `data_penjualan`
+-- AUTO_INCREMENT untuk tabel `data_penjualan`
 --
 ALTER TABLE `data_penjualan`
   MODIFY `id_jual` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT for table `data_produksi`
+-- AUTO_INCREMENT untuk tabel `data_produksi`
 --
 ALTER TABLE `data_produksi`
-  MODIFY `id_produksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id_produksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
--- AUTO_INCREMENT for table `login`
---
-ALTER TABLE `login`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `data_penjualan`
+-- Ketidakleluasaan untuk tabel `data_penjualan`
 --
 ALTER TABLE `data_penjualan`
   ADD CONSTRAINT `data_penjualan_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `stok_barang` (`id_barang`);
 
 --
--- Constraints for table `data_produksi`
+-- Ketidakleluasaan untuk tabel `data_produksi`
 --
 ALTER TABLE `data_produksi`
   ADD CONSTRAINT `data_produksi_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `stok_barang` (`id_barang`),

@@ -89,9 +89,7 @@
 
 
 
-                //Approved
-                //Rejected
-                //Galon
+                
                 // Query untuk mengambil jumlah produksi
                 $queryProduksiGalon = "SELECT SUM(jumlah_produksi) AS total_produksi_galon FROM data_produksi WHERE nama_barang = 'Galon'";
                 $resultProduksiGalon = $conn->query($queryProduksiGalon);
@@ -221,15 +219,15 @@
                         <p>Total Stok</p>
                     </div>
                 </div>
-                <div class="stok" id="approved">
-                    <div class="gambar">
-                        <img src="icon/Vector.png" alt="" width="40px">
-                    </div>
-                    <div class="keterangan">
-                        <p id="jumlah">17</p>
-                        <p>Approved</p>
-                    </div>
-                </div>
+                    <!-- <div class="stok" id="approved">
+                        <div class="gambar">
+                            <img src="icon/Vector.png" alt="" width="40px">
+                        </div>
+                        <div class="keterangan">
+                            <p id="jumlah">17</p>
+                            <p>Approved</p>
+                        </div>
+                    </div> -->
                 <div class="stok" id="rejected">
                     <div class="gambar">
                         <img src="icon/Vector-1.png" alt="" width="40px">

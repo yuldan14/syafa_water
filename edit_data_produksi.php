@@ -53,7 +53,7 @@
             $harga_baru = $_POST['harga_produksi'];
 
             // Query untuk mengupdate data berdasarkan ID
-            $query = "UPDATE data_produksi SET nama_barang = '$nama_baru', tanggal_produksi = '$tanggal_baru', jumlah_produksi = $jumlah_baru, harga_produksi = '$harga_baru' WHERE id_produksi = $id_produksi";
+            $query = "UPDATE data_produksi SET nama_barang = '$nama_baru', tanggal_produksi = '$tanggal_baru    ', jumlah_produksi = $jumlah_baru, harga_produksi = '$harga_baru' WHERE id_produksi = $id_produksi";
 
             if ($koneksi->query($query) === TRUE) {
                 // Tampilkan popup "Data berhasil di edit"

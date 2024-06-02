@@ -134,15 +134,15 @@
                 <!-- Sertakan perpustakaan jQuery -->
                 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-                <div class="stok" id="detail">
+                <!-- <div class="stok" id="detail">
                     <p>Stok Barang di Gudang</p>
                     <p id="dropdown" onclick="toggleDropdown()">
                         <i data-feather='chevron-down'></i>
                     </p>
-                    <div id="dropdownContent" style="display: none;">
+                    <div id="dropdownContent" style="display: none;"> -->
                         <!-- Konten dropdown akan diisi secara dinamis di sini -->
-                    </div>
-                </div>
+                    <!-- </div>
+                </div> -->
 
                 <script>
                     function toggleDropdown() {
@@ -187,52 +187,6 @@
 
             </div>
             <div class="summary">
-                <div class="tabel" id="summary">
-                    <table id="tbl">
-                        <tr>
-                            <th>No</th>
-                            <th>ID Barang</th>
-                            <th>Nama Barang</th>
-                            <th>Pemasukan</th>
-                            <th>Pengeluaran</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>Galon</td>
-                            <td>12000</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>Galon</td>
-                            <td>12000</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>Galon</td>
-                            <td>12000</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>Galon</td>
-                            <td>12000</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>Galon</td>
-                            <td>12000</td>
-                            <td>-</td>
-                        </tr>
-                    </table>
-                </div>
                 <div class="graf" id="summary">
                     <?php
                     // Koneksi ke database
@@ -279,7 +233,7 @@
                     $conn->close();
                     ?>
 
-                    <canvas id="myBarChart" width="400" height="200"></canvas>
+                    <canvas id="myBarChart" width="500" height="300"></canvas>
                 </div>
 
             </div>

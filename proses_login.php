@@ -3,7 +3,7 @@
 $host = 'localhost'; // Ganti dengan nama host database Anda
 $user = 'root'; // Ganti dengan nama pengguna database Anda
 $pass = ''; // Ganti dengan kata sandi database Anda
-$dbname = 'syafa'; // Ganti dengan nama database Anda
+$dbname = 'admin_syafa'; // Ganti dengan nama database Anda
 
 $koneksi = new mysqli($host, $user, $pass, $dbname);
 

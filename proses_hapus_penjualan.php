@@ -12,15 +12,15 @@ if ($koneksi->connect_error) {
 }
 
 // Periksa apakah parameter `id` ada dalam URL
-if (isset($_GET['id'])) {
-    $id_barang = $_GET['id'];
+if (isset($_GET['id_jual'])) {
+    $id_jual = $_GET['id_jual'];
 
     // Query untuk menghapus data berdasarkan `id_barang`
-    $query = "DELETE FROM data_produksi WHERE id_barang = $id_barang";
+    $query = "DELETE FROM data_penjualan WHERE id_jual = $id_jual";
 
     if ($koneksi->query($query) === TRUE) {
         // Jika data berhasil dihapus, arahkan kembali ke halaman data_barang_masuk.php
-        header("Location: data_barang_masuk.php");
+        header("Location: data_penjualan.php");
         exit();
     } else {
         echo "Gagal menghapus data: " . $koneksi->error;
